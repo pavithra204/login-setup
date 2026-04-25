@@ -14,34 +14,34 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "server.js"
+      "source": "/api/:path*",
+      "destination": "/server.js"
     },
     {
-      "src": "/css/(.*)",
-      "dest": "/public/css/$1"
+      "source": "/css/:path*",
+      "destination": "/public/css/:path*"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "/public/js/$1"
+      "source": "/js/:path*",
+      "destination": "/public/js/:path*"
     },
     {
-      "src": "/dashboard.html",
-      "dest": "/public/dashboard.html"
+      "source": "/dashboard.html",
+      "destination": "/public/dashboard.html"
     },
     {
-      "src": "/signup.html",
-      "dest": "/public/signup.html"
+      "source": "/signup.html",
+      "destination": "/public/signup.html"
     },
     {
-      "src": "/login.html",
-      "dest": "/public/login.html"
+      "source": "/login.html",
+      "destination": "/public/login.html"
     },
     {
-      "src": "/(.*)",
-      "dest": "/public/index.html"
+      "source": "/(.*)",
+      "destination": "/public/index.html"
     }
   ]
 }
