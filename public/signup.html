@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — AuthVault</title>
+  <meta name="description" content="Create your free AuthVault account today." />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="page-wrapper">
+    <div class="auth-container">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🔐</div>
+        <h1>AuthVault</h1>
+        <p>Join thousands of secure users</p>
+      </div>
+
+      <!-- Card -->
+      <div class="card">
+        <h2 class="card-title">Create your account</h2>
+        <p class="card-subtitle">Get started — it only takes a minute</p>
+
+        <!-- Alert banner -->
+        <div class="alert alert-error" id="signup-alert" role="alert">
+          <span>⚠️</span>
+          <span id="signup-alert-msg"></span>
+        </div>
+
+        <form id="signup-form" novalidate>
+          <!-- Name -->
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Jane Doe"
+                autocomplete="name"
+                required
+              />
+              <span class="input-icon">👤</span>
+            </div>
+            <p class="field-error" id="name-error">Name must be at least 2 characters.</p>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+              <span class="input-icon">✉️</span>
+            </div>
+            <p class="field-error" id="email-error">Please enter a valid email.</p>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Min. 6 characters"
+                autocomplete="new-password"
+                required
+              />
+              <span class="input-icon">🔑</span>
+              <button type="button" class="toggle-password" id="toggle-pw" aria-label="Toggle password">👁️</button>
+            </div>
+            <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+            <p class="strength-label" id="strength-label" style="color: var(--text-muted);"></p>
+            <p class="field-error" id="password-error">Password must be at least 6 characters.</p>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label class="form-label" for="confirm-password">Confirm Password</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Repeat your password"
+                autocomplete="new-password"
+                required
+              />
+              <span class="input-icon">🔒</span>
+            </div>
+            <p class="field-error" id="confirm-error">Passwords do not match.</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="signup-btn">
+            <span class="spinner"></span>
+            <span class="btn-text">Create Account</span>
+          </button>
+        </form>
+
+        <div class="form-footer">
+          Already have an account? <a href="/login.html" class="text-link">Sign in →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>

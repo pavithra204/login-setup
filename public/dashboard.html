@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AuthVault</title>
+  <meta name="description" content="Your secure AuthVault dashboard." />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+
+  <div class="dashboard-wrapper">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="nav-brand-icon">🔐</div>
+        AuthVault
+      </div>
+      <div class="nav-user">
+        <div class="nav-avatar" id="nav-avatar">?</div>
+        <span class="nav-name" id="nav-name">Loading…</span>
+        <button class="btn btn-danger" id="logout-btn" style="width:auto; padding: 8px 18px; font-size:0.85rem;">
+          Sign Out
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="dashboard-content">
+
+      <!-- Header -->
+      <div class="dashboard-header">
+        <p class="greeting">👋 Good to see you</p>
+        <h1 id="welcome-heading">Welcome back!</h1>
+        <p id="welcome-sub" style="color: var(--text-secondary);">Your account is active and secure.</p>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple">🆔</div>
+          <p class="stat-label">Account ID</p>
+          <p class="stat-value" id="stat-account-id">—</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon cyan">📅</div>
+          <p class="stat-label">Member For</p>
+          <p class="stat-value" id="stat-member-days">—</p>
+          <p class="stat-sub" id="stat-member-since"></p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">🔓</div>
+          <p class="stat-label">Total Logins</p>
+          <p class="stat-value" id="stat-logins">—</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber">⏱️</div>
+          <p class="stat-label">Last Login</p>
+          <p class="stat-value" id="stat-last-login" style="font-size: 1rem;">—</p>
+        </div>
+      </div>
+
+      <!-- Account Info -->
+      <div class="info-card">
+        <h2 class="info-card-title">
+          <span>👤</span> Account Details
+          <span class="badge badge-success" style="margin-left: auto;">● Active</span>
+        </h2>
+        <div class="info-row">
+          <span class="info-key">Full Name</span>
+          <span class="info-val" id="info-name">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Email Address</span>
+          <span class="info-val" id="info-email">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Member Since</span>
+          <span class="info-val" id="info-since">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Account Status</span>
+          <span class="info-val" style="color: var(--success);">✓ Verified & Active</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Auth Method</span>
+          <span class="info-val">JWT + bcrypt</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

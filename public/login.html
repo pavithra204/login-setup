@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — AuthVault</title>
+  <meta name="description" content="Sign in to your AuthVault account securely." />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="page-wrapper">
+    <div class="auth-container">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🔐</div>
+        <h1>AuthVault</h1>
+        <p>Secure, modern authentication</p>
+      </div>
+
+      <!-- Card -->
+      <div class="card">
+        <h2 class="card-title">Welcome back</h2>
+        <p class="card-subtitle">Sign in to continue to your dashboard</p>
+
+        <!-- Error alert -->
+        <div class="alert alert-error" id="login-alert" role="alert">
+          <span>⚠️</span>
+          <span id="login-alert-msg"></span>
+        </div>
+
+        <form id="login-form" novalidate>
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+              <span class="input-icon">✉️</span>
+            </div>
+            <p class="field-error" id="email-error">Please enter a valid email.</p>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+              <span class="input-icon">🔑</span>
+              <button type="button" class="toggle-password" id="toggle-pw" aria-label="Toggle password visibility">👁️</button>
+            </div>
+            <p class="field-error" id="password-error">Password is required.</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="login-btn">
+            <span class="spinner"></span>
+            <span class="btn-text">Sign In</span>
+          </button>
+        </form>
+
+        <div class="form-footer">
+          Don't have an account? <a href="/signup.html" class="text-link">Create one →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
