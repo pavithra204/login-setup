@@ -19,19 +19,20 @@ app.use(helmet()); // Add security headers
 
 // Rate limiting on auth endpoints
 const authLimiter = rateLimit({
-  windowMs: (process.env.RATE_LIMIT_WINDOW || 15) * 60 * 1000, // Default 15 minutes
-  max: process.env.RATE_LIMIT_MAX_REQUESTS || 100, // Limit each IP to 100 requests per windowMs
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW || '15') * 60 * 1000,
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100'),
   message: 'Too many requests from this IP, please try again later.',
-  standardHeaders: true, // Return rate limit info in `RateLimit-*` headers
-  legacyHeaders: false, // Disable `X-RateLimit-*` headers
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
 // General rate limiter (more lenient)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 500,
-  skip: (req) => process.env.NODE_ENV !== 'production', // Skip in development
+  skip: (req) => process.env.NODE_ENV !== 'production',
 });
+
 
 // Standard Middleware
 app.use(cors({ origin: true, credentials: true }));
@@ -52,8 +53,15 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 Server running at http://localhost:${PORT}`);
-  console.log(`📦 Database: lowdb (database/app.db.json)`);
-  console.log(`🔑 Auth: JWT + bcrypt\n`);
-});
+// Start server if not imported (e.g., local dev)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Server running at http://localhost:${PORT}`);
+    console.log(`📦 Database: lowdb`);
+    console.log(`🔑 Auth: JWT + bcrypt\n`);
+  });
+}
+
+// Export the app for Vercel
+module.exports = app;
+
