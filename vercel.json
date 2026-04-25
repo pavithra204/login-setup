@@ -16,32 +16,8 @@
   ],
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/server.js"
-    },
-    {
-      "source": "/css/:path*",
-      "destination": "/public/css/:path*"
-    },
-    {
-      "source": "/js/:path*",
-      "destination": "/public/js/:path*"
-    },
-    {
-      "source": "/dashboard.html",
-      "destination": "/public/dashboard.html"
-    },
-    {
-      "source": "/signup.html",
-      "destination": "/public/signup.html"
-    },
-    {
-      "source": "/login.html",
-      "destination": "/public/login.html"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/public/index.html"
+      "destination": "/server.js"
     }
   ]
 }
